@@ -1,0 +1,32 @@
+# Compiled class files
+*.class
+
+# Kotlin compiled
+*.jar
+*.war
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build output
+build/
+out/
+bin/
+
+# Gradle
+.gradle/
+gradle/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
