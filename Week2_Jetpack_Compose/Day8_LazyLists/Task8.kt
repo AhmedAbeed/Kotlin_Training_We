@@ -1,6 +1,7 @@
 package com.example.yehya
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,6 +43,11 @@ fun UserCard(user: LabUser) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(
+                enabled = user.isOnline
+            ) {
+                println("Clicked: ${user.name}")
+            }
             .background(
                 color = Color(0xFFEEEEEE),
                 shape = RoundedCornerShape(12.dp)
@@ -66,27 +72,12 @@ fun UserCard(user: LabUser) {
 
 @Composable
 fun UsersScreen() {
-    val users = listOf(
-        LabUser("Ahmed", true),
-        LabUser("Ali", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Yehya", true),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-        LabUser("Mohamed", true),
-        LabUser("Omar", false),
-    )
+    val users = (1..50).map { index ->
+        LabUser(
+            name = "User $index",
+            isOnline = index % 2 == 0
+        )
+    }
 
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
